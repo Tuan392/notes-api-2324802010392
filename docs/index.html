@@ -4,66 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bài 1 - Hello Cloud</title>
+    <title>Bảng so sánh - Hello Cloud</title>
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
         body {
-            margin: 0;
             font-family: Arial, sans-serif;
             background: #f1f5f9;
+            padding: 30px;
             color: #1e293b;
-            line-height: 1.7;
-        }
-
-        header {
-            background: linear-gradient(135deg, #2563eb, #0f172a);
-            color: white;
-            text-align: center;
-            padding: 45px 20px;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 30px;
-        }
-
-        header p {
-            margin: 8px 0;
-        }
-
-        main {
-            max-width: 1000px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        section {
-            background: white;
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 12px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
         }
 
         h2 {
+            text-align: center;
             color: #2563eb;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 10px;
         }
 
         table {
             width: 100%;
+            max-width: 1000px;
+            margin: 25px auto;
             border-collapse: collapse;
-            margin-top: 15px;
+            background: white;
         }
 
         th, td {
             border: 1px solid #cbd5e1;
-            padding: 12px;
+            padding: 15px;
             text-align: left;
         }
 
@@ -75,265 +41,66 @@
         tr:nth-child(even) {
             background: #f8fafc;
         }
-
-        .nist {
-            background: #eff6ff;
-            border-left: 5px solid #2563eb;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 6px;
-        }
-
-        .nist h3 {
-            color: #1d4ed8;
-            margin-top: 0;
-        }
-
-        .note {
-            color: #64748b;
-            font-size: 14px;
-        }
-
-        footer {
-            background: #0f172a;
-            color: white;
-            text-align: center;
-            padding: 25px;
-        }
-
-        @media (max-width: 600px) {
-            section {
-                padding: 15px;
-                overflow-x: auto;
-            }
-
-            table {
-                min-width: 600px;
-            }
-        }
     </style>
 </head>
 
 <body>
 
-<header>
-    <h1>BÀI 1: HELLO CLOUD API</h1>
-    <p>Lập trình trên máy ảo đám mây đầu tiên</p>
-    <p>Học phần: Điện toán đám mây</p>
-</header>
+<h2>BẢNG SO SÁNH MÁY CÁ NHÂN VÀ CODESPACE</h2>
 
-<main>
+<table>
+    <thead>
+        <tr>
+            <th>Tiêu chí</th>
+            <th>Máy cá nhân</th>
+            <th>Codespace</th>
+        </tr>
+    </thead>
 
-    <section>
-        <h2>1. Thông tin sinh viên</h2>
+    <tbody>
+        <tr>
+            <td>Thời gian từ lúc bắt đầu đến khi chạy được node -v</td>
+            <td>2 phút 30 giây (ước tính)</td>
+            <td>1 phút 20 giây (ước tính)</td>
+        </tr>
 
-        <p><strong>Mã sinh viên:</strong> 2324802010392</p>
-        <p><strong>Repository:</strong> notes-api-2324802010392</p>
-        <p><strong>Nền tảng:</strong> GitHub Codespaces</p>
-        <p><strong>Ngôn ngữ lập trình:</strong> JavaScript (Node.js)</p>
-        <p><strong>Framework:</strong> Express.js</p>
-    </section>
+        <tr>
+            <td>Số CPU, RAM (từ API)</td>
+            <td>
+                Intel Core i3-7350K<br>
+                2 cores, 4 logical processors<br>
+                RAM 7.9 GB
+            </td>
+            <td>
+                2 CPU<br>
+                RAM 7.8 GB
+            </td>
+        </tr>
 
-    <section>
-        <h2>2. Bảng so sánh máy cá nhân và Codespace</h2>
+        <tr>
+            <td>Hệ điều hành</td>
+            <td>Windows 10 Pro 22H2</td>
+            <td>Linux 6.8.0-1064-azure</td>
+        </tr>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Tiêu chí</th>
-                    <th>Máy cá nhân</th>
-                    <th>Codespace</th>
-                </tr>
-            </thead>
+        <tr>
+            <td>Cách truy cập từ thiết bị khác</td>
+            <td>Thông qua mạng LAN hoặc cấu hình truy cập từ xa</td>
+            <td>Thông qua URL Internet của GitHub Codespaces</td>
+        </tr>
 
-            <tbody>
-                <tr>
-                    <td>Thời gian từ lúc bắt đầu đến khi chạy được node -v</td>
-                    <td>2 phút 30 giây</td>
-                    <td>1 phút 20 giây</td>
-                </tr>
-
-                <tr>
-                    <td>Số CPU, RAM (từ API)</td>
-                    <td>
-                        Intel Core i3-7350K<br>
-                        2 cores, 4 logical processors<br>
-                        RAM 7.9 GB
-                    </td>
-                    <td>
-                        2 CPU<br>
-                        RAM 7.8 GB
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>Hệ điều hành</td>
-                    <td>Windows 10 Pro 22H2</td>
-                    <td>Linux 6.8.0-1064-azure</td>
-                </tr>
-
-                <tr>
-                    <td>Cách truy cập từ thiết bị khác</td>
-                    <td>
-                        Thông qua mạng LAN hoặc cấu hình
-                        truy cập từ xa
-                    </td>
-                    <td>
-                        Thông qua URL Internet của
-                        GitHub Codespaces
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>Chi phí, đo bằng gì</td>
-                    <td>
-                        Chi phí phần cứng và điện năng
-                        tiêu thụ
-                    </td>
-                    <td>
-                        Core-giờ (Core-hours),
-                        theo dõi tại GitHub Billing - Usage
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <p class="note">
-            Ghi chú: Thời gian khởi tạo chưa được ghi nhận
-            bằng đồng hồ bấm giờ. Mức sử dụng Core-hours
-            cần đối chiếu trực tiếp trên GitHub Billing.
-        </p>
-    </section>
-
-    <section>
-        <h2>3. Thông tin API Hello Cloud</h2>
-
-        <p>API được xây dựng bằng Node.js và Express.js,
-        sử dụng phương thức GET tại đường dẫn /.</p>
-
-        <table>
-            <tr>
-                <th>Thông tin</th>
-                <th>Kết quả thực tế</th>
-            </tr>
-
-            <tr>
-                <td>Message</td>
-                <td>Xin chào từ đám mây!</td>
-            </tr>
-
-            <tr>
-                <td>Host</td>
-                <td>codespaces-96e53f</td>
-            </tr>
-
-            <tr>
-                <td>Platform</td>
-                <td>Linux 6.8.0-1064-azure</td>
-            </tr>
-
-            <tr>
-                <td>CPU</td>
-                <td>2</td>
-            </tr>
-
-            <tr>
-                <td>Memory</td>
-                <td>7.8 GB</td>
-            </tr>
-
-            <tr>
-                <td>Uptime</td>
-                <td>5035 giây</td>
-            </tr>
-        </table>
-
-        <p class="note">
-            Các thông số được lấy từ kết quả JSON
-            của API GET / trên Codespace.
-        </p>
-    </section>
-
-    <section>
-        <h2>4. Năm đặc tính điện toán đám mây NIST</h2>
-
-        <div class="nist">
-            <h3>1. On-demand Self-service - Tự phục vụ theo yêu cầu</h3>
-            <p>
-                Người dùng có thể tự tạo môi trường lập trình
-                GitHub Codespaces thông qua nút Create codespace
-                mà không cần yêu cầu quản trị viên cấp phát máy.
-            </p>
-        </div>
-
-        <div class="nist">
-            <h3>2. Broad Network Access - Truy cập mạng rộng</h3>
-            <p>
-                API được cung cấp thông qua URL của GitHub Codespaces.
-                Người dùng có thể truy cập từ trình duyệt trên
-                các thiết bị có kết nối Internet khi cổng được
-                thiết lập Public.
-            </p>
-        </div>
-
-        <div class="nist">
-            <h3>3. Resource Pooling - Gộp tài nguyên</h3>
-            <p>
-                GitHub sử dụng hạ tầng tài nguyên dùng chung
-                để cung cấp môi trường Codespaces cho nhiều
-                người dùng. Mỗi người dùng được cấp phát
-                tài nguyên theo cấu hình của môi trường.
-            </p>
-        </div>
-
-        <div class="nist">
-            <h3>4. Rapid Elasticity - Co giãn nhanh</h3>
-            <p>
-                Người dùng có thể tạo, dừng và thay đổi cấu hình
-                môi trường Codespaces khi nhu cầu sử dụng thay đổi.
-                Tài nguyên có thể được cấp phát theo nhu cầu.
-            </p>
-        </div>
-
-        <div class="nist">
-            <h3>5. Measured Service - Dịch vụ đo lường được</h3>
-            <p>
-                GitHub theo dõi mức sử dụng Codespaces thông qua
-                số lượng core-giờ. Người dùng có thể xem thông tin
-                sử dụng tại Settings → Billing → Usage.
-            </p>
-        </div>
-    </section>
-
-    <section>
-        <h2>5. Kết luận</h2>
-
-        <p>
-            Qua bài thực hành, sinh viên đã biết cách tạo
-            môi trường lập trình trên nền tảng đám mây
-            bằng GitHub Codespaces.
-        </p>
-
-        <p>
-            Xây dựng thành công API Hello Cloud sử dụng
-            Node.js và Express.js để trả về thông tin
-            máy chủ dưới dạng JSON.
-        </p>
-
-        <p>
-            Đồng thời, thực hiện so sánh môi trường máy tính
-            cá nhân với môi trường đám mây và nhận diện
-            năm đặc tính cơ bản của điện toán đám mây
-            theo tiêu chuẩn NIST.
-        </p>
-    </section>
-
-</main>
-
-<footer>
-    <p>Bài thực hành số 1 - Điện toán đám mây</p>
-    <p>GitHub Codespaces | Node.js | Express.js</p>
-</footer>
+        <tr>
+            <td>Chi phí, đo bằng gì</td>
+            <td>Chi phí phần cứng và điện năng tiêu thụ</td>
+            <td>
+                Đo bằng Core-hours và dung lượng lưu trữ.<br>
+                Metered usage: $0.14.<br>
+                Included usage: $0.14.<br>
+                Chi phí sau phần được bao phủ: $0.00.
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 </body>
 </html>
