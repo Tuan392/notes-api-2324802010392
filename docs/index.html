@@ -1,106 +1,235 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bảng so sánh - Hello Cloud</title>
-
+    <title>Báo cáo Lab 2 - Hello Cloud</title>
     <style>
+        * { box-sizing: border-box; }
         body {
             font-family: Arial, sans-serif;
             background: #f1f5f9;
             padding: 30px;
             color: #1e293b;
+            line-height: 1.6;
         }
-
-        h2 {
+        h1, h2 {
             text-align: center;
             color: #2563eb;
         }
-
+        h1 { margin-bottom: 8px; }
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+        section {
+            max-width: 1100px;
+            margin: 28px auto;
+            background: #fff;
+            padding: 24px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+        }
+        h2 { margin-top: 0; }
         table {
             width: 100%;
-            max-width: 1000px;
-            margin: 25px auto;
+            margin: 20px auto;
             border-collapse: collapse;
             background: white;
         }
-
         th, td {
             border: 1px solid #cbd5e1;
-            padding: 15px;
+            padding: 12px 14px;
             text-align: left;
+            vertical-align: top;
         }
-
         th {
             background: #2563eb;
             color: white;
         }
-
-        tr:nth-child(even) {
-            background: #f8fafc;
+        tr:nth-child(even) { background: #f8fafc; }
+        code {
+            background: #e2e8f0;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: Consolas, monospace;
+        }
+        .question { font-weight: bold; color: #1d4ed8; margin-top: 22px; }
+        .note {
+            background: #eff6ff;
+            border-left: 4px solid #2563eb;
+            padding: 12px 16px;
+            margin-top: 16px;
+        }
+        @media (max-width: 700px) {
+            body { padding: 12px; }
+            section { padding: 14px; overflow-x: auto; }
+            table { min-width: 650px; }
         }
     </style>
 </head>
-
 <body>
+    <h1>BÁO CÁO LAB 2 – HELLO CLOUD</h1>
+    <p class="subtitle">So sánh máy cá nhân, Codespace, Docker Container và mô phỏng CloudSim Plus</p>
 
-<h2>BẢNG SO SÁNH MÁY CÁ NHÂN VÀ CODESPACE</h2>
+    <section>
+        <h2>BẢNG SO SÁNH MÁY CÁ NHÂN VÀ CODESPACE</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tiêu chí</th>
+                    <th>Máy cá nhân</th>
+                    <th>Codespace</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Thời gian từ lúc bắt đầu đến khi chạy được <code>node -v</code></td>
+                    <td>2 phút 30 giây (ước tính)</td>
+                    <td>1 phút 20 giây (ước tính)</td>
+                </tr>
+                <tr>
+                    <td>Số CPU, RAM (từ API)</td>
+                    <td>Intel Core i3-7350K<br>2 cores, 4 logical processors<br>RAM 7.9 GB</td>
+                    <td>2 CPU<br>RAM 7.8 GB</td>
+                </tr>
+                <tr>
+                    <td>Hệ điều hành</td>
+                    <td>Windows 10 Pro 22H2</td>
+                    <td>Linux 6.8.0-1064-azure</td>
+                </tr>
+                <tr>
+                    <td>Cách truy cập từ thiết bị khác</td>
+                    <td>Thông qua mạng LAN hoặc cấu hình truy cập từ xa</td>
+                    <td>Thông qua URL Internet của GitHub Codespaces</td>
+                </tr>
+                <tr>
+                    <td>Chi phí, đo bằng gì</td>
+                    <td>Chi phí phần cứng và điện năng tiêu thụ</td>
+                    <td>
+                        Đo bằng Core-hours và dung lượng lưu trữ.<br>
+                        Metered usage: $0.14.<br>
+                        Included usage: $0.14.<br>
+                        Chi phí sau phần được bao phủ: $0.00.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 
-<table>
-    <thead>
-        <tr>
-            <th>Tiêu chí</th>
-            <th>Máy cá nhân</th>
-            <th>Codespace</th>
-        </tr>
-    </thead>
+    <section>
+        <h2>BẢNG SO SÁNH CODESPACE (MÁY ẢO) VÀ CONTAINER</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tiêu chí</th>
+                    <th>Codespace (máy ảo)</th>
+                    <th>Container</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Thời gian khởi động</td>
+                    <td>1 phút 20 giây</td>
+                    <td>0.406 giây</td>
+                </tr>
+                <tr>
+                    <td>Kích thước</td>
+                    <td>15 GB-tháng (hạn mức đĩa)</td>
+                    <td>251 MB (Disk Usage), 63.3 MB (Content Size)</td>
+                </tr>
+                <tr>
+                    <td>Nhân hệ điều hành</td>
+                    <td>Linux 6.8.0-1070-azure (kernel của máy ảo)</td>
+                    <td>Dùng chung kernel với máy chủ: 6.8.0-1070-azure</td>
+                </tr>
+                <tr>
+                    <td>Mức cô lập</td>
+                    <td>Cô lập ở mức máy ảo, có môi trường hệ điều hành riêng</td>
+                    <td>Cô lập ở mức container bằng cơ chế của hệ điều hành, dùng chung kernel với máy chủ</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 
-    <tbody>
-        <tr>
-            <td>Thời gian từ lúc bắt đầu đến khi chạy được node -v</td>
-            <td>2 phút 30 giây (ước tính)</td>
-            <td>1 phút 20 giây (ước tính)</td>
-        </tr>
+    <section>
+        <h2>KẾT QUẢ THÍ NGHIỆM CLOUDSIM PLUS</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Lần</th>
+                    <th>Thay đổi</th>
+                    <th>Thời điểm hoàn thành Cloudlet cuối (giây mô phỏng)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>0</td><td>Giữ nguyên</td><td>20.1 giây</td></tr>
+                <tr><td>1</td><td>Nhân đôi VMS</td><td>20.1 giây</td></tr>
+                <tr><td>2</td><td>Nhân đôi CLOUDLETS</td><td>40.1 giây*</td></tr>
+                <tr><td>3</td><td>Đổi sang CloudletSchedulerSpaceShared</td><td>20.1 giây</td></tr>
+            </tbody>
+        </table>
+        <p class="note">
+            *Ở lần 2, ảnh kết quả ghi nhận 4 Cloudlet SUCCESS trong khi cấu hình đặt CLOUDLETS = 8.
+            Vì vậy, 40.1 giây là FinishTime lớn nhất trong các Cloudlet đã hoàn thành được hiển thị,
+            không khẳng định cả 8 Cloudlet đều hoàn thành.
+        </p>
+    </section>
 
-        <tr>
-            <td>Số CPU, RAM (từ API)</td>
-            <td>
-                Intel Core i3-7350K<br>
-                2 cores, 4 logical processors<br>
-                RAM 7.9 GB
-            </td>
-            <td>
-                2 CPU<br>
-                RAM 7.8 GB
-            </td>
-        </tr>
+    <section>
+        <h2>CÂU HỎI THẢO LUẬN</h2>
 
-        <tr>
-            <td>Hệ điều hành</td>
-            <td>Windows 10 Pro 22H2</td>
-            <td>Linux 6.8.0-1064-azure</td>
-        </tr>
+        <p class="question">1. Vì sao API trong container <code>notes2</code> vẫn báo <code>memoryGB</code> bằng RAM máy chủ dù đã giới hạn 128 MB? Ứng dụng Java hoặc Node.js chạy trong container cần lưu ý gì về điều này?</p>
+        <p>
+            Vì API có thể đang lấy tổng RAM thông qua API hệ điều hành (ví dụ Node.js
+            <code>os.totalmem()</code>). Giá trị này phản ánh bộ nhớ của máy chủ hoặc môi trường
+            hệ điều hành mà container dùng chung, chứ không nhất thiết phản ánh giới hạn RAM riêng
+            của container. Docker vẫn áp dụng giới hạn 128 MiB thông qua cơ chế cgroups; điều đó
+            được thể hiện ở <code>docker stats</code> với kết quả <code>17.36MiB / 128MiB</code>.
+        </p>
+        <p>
+            Vì vậy, ứng dụng không nên chỉ dựa vào giá trị tổng RAM của hệ điều hành để xác định
+            bộ nhớ được cấp. Ứng dụng cần đọc giới hạn cgroup phù hợp hoặc dùng cơ chế nhận biết
+            container của runtime. Với Java, cần kiểm tra khả năng nhận biết giới hạn container
+            của JVM và có thể cấu hình heap bằng các tùy chọn như
+            <code>-XX:MaxRAMPercentage</code> hoặc <code>-Xmx</code>. Với Node.js, cần phân biệt
+            thông tin RAM toàn hệ thống với giới hạn bộ nhớ của container và đặt giới hạn heap
+            phù hợp khi cần.
+        </p>
 
-        <tr>
-            <td>Cách truy cập từ thiết bị khác</td>
-            <td>Thông qua mạng LAN hoặc cấu hình truy cập từ xa</td>
-            <td>Thông qua URL Internet của GitHub Codespaces</td>
-        </tr>
+        <p class="question">2. Time-shared và space-shared khác nhau ra sao trong kết quả lần 3? Một nhà cung cấp đám mây hướng thị trường sẽ chọn chính sách nào cho gói giá rẻ, vì sao?</p>
+        <p>
+            Với <strong>Time-shared</strong>, nhiều Cloudlet có thể cùng chia sẻ năng lực CPU của
+            VM theo các khoảng thời gian; CPU được phân chia giữa các tác vụ đang chạy.
+            Với <strong>Space-shared</strong>, các lõi CPU được cấp riêng cho Cloudlet trong thời
+            gian thực thi; Cloudlet chưa được cấp đủ lõi sẽ phải chờ.
+        </p>
+        <p>
+            Trong thí nghiệm lần 3, khi đổi sang <code>CloudletSchedulerSpaceShared</code>,
+            thời điểm hoàn thành Cloudlet cuối vẫn là 20.1 giây, bằng kết quả baseline.
+            Điều này cho thấy với cấu hình và tải mô phỏng đang dùng, sự thay đổi bộ lập lịch
+            không làm thay đổi thời gian hoàn thành được ghi nhận. Một nhà cung cấp hướng đến
+            gói giá rẻ thường có thể chọn Time-shared vì dễ chia sẻ tài nguyên giữa nhiều khách
+            hàng, tăng mức sử dụng CPU và giảm chi phí trên mỗi khách hàng. Đổi lại, hiệu năng
+            có thể biến động khi nhiều tác vụ cùng tranh chấp CPU.
+        </p>
 
-        <tr>
-            <td>Chi phí, đo bằng gì</td>
-            <td>Chi phí phần cứng và điện năng tiêu thụ</td>
-            <td>
-                Đo bằng Core-hours và dung lượng lưu trữ.<br>
-                Metered usage: $0.14.<br>
-                Included usage: $0.14.<br>
-                Chi phí sau phần được bao phủ: $0.00.
-            </td>
-        </tr>
-    </tbody>
-</table>
-
+        <p class="question">3. Mô phỏng giúp ích gì trước khi thuê hạ tầng thật, và kết quả mô phỏng có thể sai lệch với thực tế ở điểm nào?</p>
+        <p>
+            Mô phỏng giúp thử nghiệm nhiều cấu hình máy chủ, số lượng VM, số lượng tác vụ và
+            chính sách lập lịch trước khi trả tiền thuê hạ tầng thật. Nhờ đó, người dùng có thể
+            ước lượng thời gian xử lý, nhận biết nguy cơ thiếu tài nguyên, tìm điểm nghẽn và
+            so sánh các phương án để chọn cấu hình phù hợp hơn.
+        </p>
+        <p>
+            Tuy nhiên, kết quả mô phỏng có thể khác thực tế vì mô hình thường đơn giản hóa
+            phần cứng, mạng, lưu trữ và cơ chế ảo hóa. Mô phỏng cũng có thể không phản ánh đầy đủ
+            tình trạng tải biến động, độ trễ mạng, lỗi phần cứng, tranh chấp tài nguyên với
+            khách hàng khác (noisy neighbors), chính sách riêng của nhà cung cấp hoặc chi phí
+            phát sinh. Vì vậy, nên xem kết quả mô phỏng là cơ sở ước lượng và vẫn cần kiểm thử
+            thực tế trước khi triển khai chính thức.
+        </p>
+    </section>
 </body>
 </html>
